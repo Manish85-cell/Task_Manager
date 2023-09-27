@@ -1,6 +1,3 @@
-
-
-
 document.addEventListener('DOMContentLoaded', function () {
 
     console.log("event handler")
@@ -8,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let k = "";
         document.querySelectorAll('.ctg').forEach(function (i) {
             if (i.checked == true) {
-                k =  i.id;
+                k = i.id;
             }
         })
         return k;
@@ -45,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     btn.remove();
                     btn2.remove();
                     check.remove();
+                    btn3.remove();
                 }
             })
             ctg();
@@ -64,54 +62,92 @@ document.addEventListener('DOMContentLoaded', function () {
                         btn.remove();
                         btn2.remove();
                         check.remove();
+                        btn3.remove();
                     }
 
                 }
             })
         }
+
+        const btn3 = document.createElement('button');
+        btn3.id = "time";
+        const d = new Date();
+        btn3.innerText = `Created on:${d.getFullYear()}/${d.getMonth()}/${d.getDate()}||${d.getHours()}:${d.getMinutes()}`;
+
+        document.querySelector('select').onchange=function(){
+            if(document.querySelector.options[selectElement.selectedIndex].value == "O")
+            {
+                document.querySelectorAll('li').forEach(function (j) {
+                    let swap = 0;
+                    forEach(function (i) {
+                        let a = i.querySelector('#time').innerText;
+                        let b = (i + 1).querySelector('#time').innerText;
         
-        //checkbox operation
-        const check = document.createElement('input');
-        check.setAttribute("type", "checkbox");
-        check.id = li.innerHTML
-        check.onchange = () => {
+                        let c = a(parseInt);
+                        let d = b(parseInt);
+        
+                        if (c > d) {
+                            i.querySelector('ul').button('#time').innerText = b;
+                            (i + 1).querySelector('ul').button('#time').innerText = a;
+                        }
+                        swap++;
+                    })
+                    if (swap == 0) {
+                        return;
+                    }
+                    
+                })
+            }
             
-            if (check.checked == true) {
-                document.querySelectorAll('li').forEach(function (i) {
-                    if (check.id == i.innerHTML) {
-                        i.style.color = "green";
-                        i.style.fontStyle = "italic"
-                    }
-                })
-            }
-            else {
-                document.querySelectorAll('li').forEach(function (i) {
-                    if (check.id == i.innerHTML) {
-                        i.style.color = "red";
-                        i.style.fontStyle = "normal"
-                    }
-                })
-                
-            }
         }
-
-
-      
-        li.style.color = "red";
-        li.style.fontSize = "25px";
-        const selected = checkbox();
-     
-        document.querySelector(`#${selected}-task`).append(li, btn, btn2, check);
-       
-
-        ctg();
-        //for clearing the input field after adding
-        document.querySelector('#task').value = '';
-    
-        //stop the form from submitting
-       
-       return false;
-
         
+        
+
+//checkbox operation
+const check = document.createElement('input');
+check.setAttribute("type", "checkbox");
+check.id = li.innerHTML
+check.onchange = () => {
+
+    if (check.checked == true) {
+        document.querySelectorAll('li').forEach(function (i) {
+            if (check.id == i.innerHTML) {
+                i.style.color = "green";
+                i.style.fontStyle = "italic"
+            }
+        })
+        const c = new Date();
+        btn3.innerText = `Completed on:${d.getFullYear()}/${d.getMonth()}/${d.getDate()}||${d.getHours()}:${d.getMinutes()}`;
+    }
+    else {
+
+        document.querySelectorAll('li').forEach(function (i) {
+            if (check.id == i.innerHTML) {
+                i.style.color = "red";
+                i.style.fontStyle = "normal"
+            }
+        })
+
+    }
+}
+
+
+
+li.style.color = "red";
+li.style.fontSize = "25px";
+const selected = checkbox();
+
+document.querySelector(`#${selected}-task`).append(li, btn, btn2, check, btn3);
+
+
+ctg();
+//for clearing the input field after adding
+document.querySelector('#task').value = '';
+
+//stop the form from submitting
+
+return false;
+
+
     }
 })
