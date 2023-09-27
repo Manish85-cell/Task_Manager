@@ -1,32 +1,28 @@
 
 
-
 document.addEventListener('DOMContentLoaded', function () {
-
-    console.log("event handler")
-    function checkbox() {
-        let k = "";
-        document.querySelectorAll('.ctg').forEach(function (i) {
-            if (i.checked == true) {
-                k =  i.id;
-            }
-        })
-        return k;
+    function checkbox(){
+            document.querySelectorAll('.ctg').forEach(function(i){
+                if(i.checked == "true"){
+                     return i.id;
+                }
+            })
     }
-    function ctg() {
-        document.querySelectorAll('.head').forEach(function (i) {
+    function ctg(){
+        document.querySelectorAll('.head').forEach(function(i){
             let n = i.querySelector('ul').children.length;
-            if (n == 0) {
+            if(n == 0)
+            {
                 i.style.display = "none";
             }
-            if (n > 0) {
+            if(n>0){
                 i.style.display = "block";
             }
         })
     }
 
-    ctg();
-
+     ctg() ;
+        
 
     document.querySelector('form').onsubmit = () => {
         const task = document.querySelector('#task').value;
@@ -48,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             })
             ctg();
-
+            
         }
 
         //edit operation
@@ -69,13 +65,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             })
         }
-        
+
         //checkbox operation
         const check = document.createElement('input');
         check.setAttribute("type", "checkbox");
         check.id = li.innerHTML
         check.onchange = () => {
-            
             if (check.checked == true) {
                 document.querySelectorAll('li').forEach(function (i) {
                     if (check.id == i.innerHTML) {
@@ -91,27 +86,24 @@ document.addEventListener('DOMContentLoaded', function () {
                         i.style.fontStyle = "normal"
                     }
                 })
-                
             }
         }
 
 
-      
+
         li.style.color = "red";
         li.style.fontSize = "25px";
         const selected = checkbox();
-     
-        document.querySelector(`#${selected}-task`).append(li, btn, btn2, check);
-       
+        
+        document.querySelector(`# ${selected}`).append(li, btn, btn2, check);
+        
 
         ctg();
         //for clearing the input field after adding
         document.querySelector('#task').value = '';
-    
         //stop the form from submitting
-       
-       return false;
 
-        
+
+        return false;
     }
 })
