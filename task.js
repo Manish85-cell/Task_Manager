@@ -72,8 +72,46 @@ document.addEventListener('DOMContentLoaded', function () {
         const btn3 = document.createElement('button');
         btn3.id = "time";
         const d = new Date();
-        btn3.innerText = `Created on:${d.getFullYear()}/${d.getMonth()}/${d.getDate()}||${d.getHours()}:${d.getMinutes()}`;
+        const date = 
+            {
+               "year": `${d.getFullYear()}`,
+               "month":`${d.getMonth()}`,
+               "date":`${d.getDate()}`,
+               "hours":`${d.getHours()}`,
+               "min":`${d.getMinutes()}`
 
+            };
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        
+        btn3.innerText = `Created on:${date.year}/${date.month}/${date.date}||${date.hours}:${date.min}`;
+        
         document.querySelector('select').onchange=function(){
             if(document.querySelector.options[selectElement.selectedIndex].value == "O")
             {
@@ -86,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
                         let c = a(parseInt);
                         let d = b(parseInt);
         
-                        if (c > d) {
+                        if (c < d) {
                             i.querySelector('ul').button('#time').innerText = b;
                             (i + 1).querySelector('ul').button('#time').innerText = a;
                         }
