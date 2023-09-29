@@ -81,63 +81,10 @@ document.addEventListener('DOMContentLoaded', function () {
                "min":`${d.getMinutes()}`
 
             };
-        
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-        
         btn3.innerText = `Created on:${date.year}/${date.month}/${date.date}||${date.hours}:${date.min}`;
         
-        document.querySelector('select').onchange=function(){
-            if(document.querySelector.options[selectElement.selectedIndex].value == "O")
-            {
-                document.querySelectorAll('li').forEach(function (j) {
-                    let swap = 0;
-                    forEach(function (i) {
-                        let a = i.querySelector('#time').innerText;
-                        let b = (i + 1).querySelector('#time').innerText;
         
-                        let c = a(parseInt);
-                        let d = b(parseInt);
         
-                        if (c < d) {
-                            i.querySelector('ul').button('#time').innerText = b;
-                            (i + 1).querySelector('ul').button('#time').innerText = a;
-                        }
-                        swap++;
-                    })
-                    if (swap == 0) {
-                        return;
-                    }
-                    
-                })
-            }
-            
-        }
         
         
 
