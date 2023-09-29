@@ -1,0 +1,21 @@
+body{
+    background-color: pink;
+    
+    
+}
+head{
+    margin-right: 50%;
+    width:100px;
+
+}
+#box{
+    margin-right:75px;
+    border:10px solid grey;
+    width:fit-content
+}
+.head{
+    border:1px solid black;
+    position:relative;
+    margin-top:20px;
+}
+
